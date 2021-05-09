@@ -1,3 +1,7 @@
 https://www.c-sharpcorner.com/UploadFile/58e23e/navigation-from-one-page-to-another-in-angularjs-page-routin/
 
 linking multiple pages
+
+https://www.youtube.com/watch?v=aL95O4ruun0
+
+login page using angularjs (video)
