@@ -4,7 +4,11 @@ var app = angular.module('loginApp', ['ngRoute']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/',{
-        templateUrl : 'login.html'
+        templateUrl : 'login.html',
+        controller: 'loginCtrl'
+    })
+    .when('/sign',{
+        templateUrl : 'signup.html'
     })
     .when('/dashboard',{
         templateUrl : 'dashboard.html'
@@ -19,10 +23,11 @@ app.controller('loginCtrl', function($scope, $location){
     $scope.submit = function(){
         var uname = $scope.username ;
         var pass = $scope.password ;
-        if( uname == "babu" && pass== "2"){
+        console.log(uname,pass);
+        if( uname ==  'babu' && pass== '2'){
             $location.path('/dashboard');
         }else{
-            alert(`Wrong Username or Password. Please try again!`)
+            alert('Wrong Username or Password. Please try again!');
         }
     };
 
