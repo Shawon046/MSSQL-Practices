@@ -2,24 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Log In</title>
     <link rel="stylesheet" href="login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+    <script src="log in.js"></script>
   </head>
-  <body>
+
+
+<body ng-app = "loginApp"  >
       
-<div class="login-box">
+<div class="login-box" ng-controller='loginCtrl'>
   <h1>Login</h1>
   <div class="textbox">
     <i class="fas fa-user"></i>
-    <input type="text" placeholder="Phone,Email or Username">
+    <input type="text" ng-model = "username" placeholder="Phone,Email or Username">
   </div>
 
   <div class="textbox">
     <i class="fas fa-lock"></i>
-    <input type="password" placeholder="Password">
+    <input type="password" ng-model = "password"  placeholder="Password">
   </div>
 
-  <input type="button" class="btn" value="Sign in">
+  <button type="button" ng-click ="submit()">Log in</button>
 
   <div>
       <span id='no-acc-span'> Don't have an account?</span>
