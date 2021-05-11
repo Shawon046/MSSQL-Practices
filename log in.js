@@ -2,7 +2,7 @@ var app = angular.module("loginApp", ['ngRoute']);
 
 app.config(function($routeProvider, $locationProvider) {
     //inject $locationProvider service
-    // $locationProvider.hashPrefix(''); 
+    $locationProvider.hashPrefix(''); 
     // add configuration
 	$routeProvider
 		.when('/', {
@@ -24,6 +24,7 @@ app.config(function($routeProvider, $locationProvider) {
 		.otherwise({
 			redirectTo: '/'
 		});
+	// $locationProvider.html5Mode(true);
 });
 
 
@@ -33,10 +34,21 @@ app.controller('loginCtrl', function($scope, $location){
         var pass = $scope.password ;
         console.log(uname,pass);
         if( uname ==  '1' && pass== '2'){
-            $location.path('dash');
+            $location.path('/dash');
         }else{
             alert('Wrong Username or Password. Please try again!');
         }
     };
 
+	$scope.register = function(){
+        console.log( `hi`);
+        $location.path('/sign').replace(); 
+		// $scope.$apply(register) ;
+		// $timeout(function() {
+            
+        // });
+    };
+
 });
+
+
