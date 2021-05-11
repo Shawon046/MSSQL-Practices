@@ -30,6 +30,7 @@
                     </div>
                     
                     <div class="form-element">
+                      <!-- add function to controller here -->
                       <button>Sign In</button>
                     </div>
                     <div class="form-element">
@@ -45,6 +46,7 @@
                     </div>
                 </div>
             </div>
+
             <div ng-switch-when="tab2">
               <div class="tab-body">
                   <div class="form-element">
@@ -67,10 +69,15 @@
                    <label for="argeementbox">Agree with <a href="/terms_conditions">terms and conditions</a></label>
                   </div>
                   <div class="form-element">
+                    <!-- add function to controller here -->
                     <button>Sign Up</button>
                    </div>
                   <div class="form-element" id="alreadyacc">
-                   Already have an account? <a href="/sign_in">Sign In</a>
+                   Already have an account? 
+                   <!-- <a href="/sign_in" ng-click="tabName='tab1'">Sign In</a> -->
+                   <a href="signin-signup.html">Sign In</a>
+                   <!-- works same -->
+                   <!-- <a href="/signin-signup.html">Sign In</a> -->
                   </div>
               </div>
             </div>
@@ -79,7 +86,9 @@
           </div>
       </div>
 
-      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
       <script src="signinup.js"></script>
   </body>
 </html>
