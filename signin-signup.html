@@ -7,38 +7,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body ng-app = "myApp" ng-controller='MyCtrl'>
       <div class="form">
           <div class="tab-header">
-              <div >SIGN IN</div>
-              <div class="active">SIGN UP</div>
+              <div ng-class="{'active': tabName=='tab1'}" ng-click="tabName='tab1'">SIGN IN</div>
+              <div ng-class="{'active': tabName=='tab2'}" ng-click="tabName='tab2'">SIGN UP</div>
           </div>
-          <div class="tab-content">
+          <div class="tab-content" ng-switch="tabName">
+            <div ng-switch-when="tab1">
+                <div class="tab-body">
+                    <div class="form-element">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="form-element">
+                      <input type="password" placeholder="Password">
+                    </div>
+                    
+                    <div class="form-element">
+                      <button>Sign In</button>
+                    </div>
+                    <div class="form-element">
+                        <div class="grid-container">
+                          <div class="grid-item">
+                              <input type="checkbox" id="rememberbox">
+                              <label for="rememberbox">Remember me</label>
+                          </div>
+                          <div class="grid-item">
+                              <a href="/recover_password">Forget Password?</a>
+                          </div>
+                      </div>  
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="tab2">
               <div class="tab-body">
-                  
-                  <div class="form-element">
-                      <input type="email" placeholder="Email">
-                  </div>
-                  <div class="form-element">
-                    <input type="password" placeholder="Password">
-                  </div>
-                  
-                  <div class="form-element">
-                    <button>Sign In</button>
-                  </div>
-                  <div class="form-element">
-                      <div class="grid-container">
-                        <div class="grid-item">
-                            <input type="checkbox" id="rememberbox">
-                            <label for="rememberbox">Remember me</label>
-                        </div>
-                        <div class="grid-item">
-                            <a href="/recover_password">Forget Password?</a>
-                        </div>
-                    </div>  
-                  </div>
-              </div>
-              <div class="tab-body active">
                   <div class="form-element">
                     <input type="text" placeholder="Name">
                   </div>
@@ -65,9 +67,18 @@
                    Already have an account? <a href="/sign_in">Sign In</a>
                   </div>
               </div>
+            </div>
                 </div>
               </div>
           </div>
       </div>
+
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script>
+var module = angular.module('myApp', []);
+module.controller('MyCtrl', function($scope) {
+  $scope.tabName = "tab1";
+});
+</script>
   </body>
 </html>

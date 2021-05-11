@@ -90,7 +90,7 @@ input[type="checkbox"] {
     margin-left: 50px;
 
 }
-
+/*
 .form .tab-content > div.active{
     display: block;
 }
@@ -98,7 +98,7 @@ input[type="checkbox"] {
 .form .tab-content > div{
     display: none;
 }
-
+*/
 .grid-container {
     display: inline-grid;
     grid-gap: 20px;
