@@ -10,11 +10,11 @@ app.config(function($routeProvider, $locationProvider) {
 			controller: 'loginCtrl'
 		})
 		.when('/sign', {
-			templateUrl: 'signin-signup.html',
+			templateUrl: 'signin-signup.html'
 			// controller: 'SecondController'
 		})
         .when('/dash', {
-			templateUrl: 'dashboard.html',
+			templateUrl: 'dashboard.html'
 			// controller: 'SecondController'
 		})
         .when('/check', {
@@ -33,8 +33,11 @@ app.controller('loginCtrl', function($scope, $location){
         var uname = $scope.username ;
         var pass = $scope.password ;
         console.log(uname,pass);
+
+		console.log($location.absUrl());
         if( uname ==  '1' && pass== '2'){
             $location.path('/dash');
+			console.log($location.absUrl());
         }else{
             alert('Wrong Username or Password. Please try again!');
         }
@@ -42,7 +45,10 @@ app.controller('loginCtrl', function($scope, $location){
 
 	$scope.register = function(){
         console.log( `hi`);
-        $location.path('/sign').replace(); 
+		console.log($location.absUrl());
+		var url = $location.url('/sign');
+        // $location.replace(); 
+		console.log($location.absUrl());
 		// $scope.$apply(register) ;
 		// $timeout(function() {
             
