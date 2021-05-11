@@ -1,21 +1,29 @@
-var app = angular.module('loginApp', ['ngRoute']);
+var app = angular.module("loginApp", ['ngRoute']);
 
-// config the path
-app.config(function($routeProvider){
-    $routeProvider
-    .when('/',{
-        templateUrl : 'login.html',
-        controller: 'loginCtrl'
-    })
-    .when('/sign',{
-        templateUrl : 'signup.html'
-    })
-    .when('/dashboard',{
-        templateUrl : 'dashboard.html'
-    })
-    .otherwise({
-        redirectTo : '/'
-    });
+app.config(function($routeProvider, $locationProvider) {
+    //inject $locationProvider service
+    // $locationProvider.hashPrefix(''); 
+    // add configuration
+	$routeProvider
+		.when('/', {
+			templateUrl: 'login.html',
+			controller: 'loginCtrl'
+		})
+		.when('/sign', {
+			templateUrl: 'signin-signup.html',
+			// controller: 'SecondController'
+		})
+        .when('/dash', {
+			templateUrl: 'dashboard.html',
+			// controller: 'SecondController'
+		})
+        .when('/check', {
+			templateUrl: './Login Page/welcome.html',
+			// controller: 'SecondController'
+		})
+		.otherwise({
+			redirectTo: '/'
+		});
 });
 
 
@@ -24,8 +32,8 @@ app.controller('loginCtrl', function($scope, $location){
         var uname = $scope.username ;
         var pass = $scope.password ;
         console.log(uname,pass);
-        if( uname ==  'babu' && pass== '2'){
-            $location.path('/dashboard');
+        if( uname ==  '1' && pass== '2'){
+            $location.path('dash');
         }else{
             alert('Wrong Username or Password. Please try again!');
         }
