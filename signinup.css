@@ -122,3 +122,12 @@ a {
 #agreementbox {
   margin-left: 50px;
 }
+
+.wel {
+  color: white;
+  text-align: center;
+}
+
+#welnote {
+  padding: 10px;
+}

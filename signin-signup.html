@@ -17,15 +17,18 @@
               <div ng-class="{'active': tabName=='tab1'}" ng-click="tabName='tab1'">SIGN IN</div>
               <div ng-class="{'active': tabName=='tab2'}" ng-click="tabName='tab2'">SIGN UP</div>
           </div>
-          <div class="tab-content" ng-switch="tabName" >
-            <div ng-switch-when="tab1" >
+
+          <div class="tab-content" ng-switch="tabName">
+            <div ng-switch-when="tab1">
+              <span class = "wel">
+                <h1>WELCOME</h1>
+                <p>. . . . . . . . . . . . . . . . . . . . </p>
+                <p id="welnote">this is a simple sign in sign up page which will lead to mssql database</p>
+              
+              </span>
                 <div class="tab-body" ng-controller='loginCtrl'>
                     <div class="form-element" >
                         <input type="email" ng-model = "username" placeholder="Email">
-                    </div>
-                    <div class="form-element">
-                      <input type="password" ng-model = "password" placeholder="Password">
-                    </div>
                     
                     <div class="form-element">
                       <!-- add function to controller here -->
