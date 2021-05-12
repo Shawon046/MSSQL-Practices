@@ -20,10 +20,24 @@ app.config(function($routeProvider, $locationProvider) {
 			// controller: 'SecondController'
 		})
     .when('/dash', {
+      resolve: {
+        "check" :function( $location, $rootScope){
+          if( ! $rootScope.loggedIn){
+            $location.path('/');
+          }
+        }
+      },
 			templateUrl: '/static/dashboard.html'
-			// controller: 'SecondController'
+			
 		})
     .when('/check', {
+      resolve: {
+        "check" :function( $location, $rootScope){
+          if( ! $rootScope.signedIn){
+            $location.path('/');
+          }
+        }
+      },
 			templateUrl: '/static/welcome.html',
 			// controller: 'SecondController'
 		})
@@ -42,12 +56,11 @@ app.controller('tabCtrl', function($scope, $location){
 });
 
 
-app.controller('loginCtrl', function($scope, $location){
-  // // always shows the "log in" tab first
-  // $scope.tabName = "tab1"; 
-  // console.log($scope);
+app.controller('loginCtrl', function($scope, $location, $rootScope,$http){
 
-  
+  // $scope.data = {};
+
+
   $scope.submit = function(){
     var uname = $scope.username ;
     var pass = $scope.password ;
@@ -55,6 +68,7 @@ app.controller('loginCtrl', function($scope, $location){
 
     console.log($location.absUrl());
     if( uname ==  'babu@gmail' && pass== '2'){
+        $rootScope.loggedIn = true ;
         $location.path('/dash');
         console.log($location.absUrl());
       }else{
@@ -71,6 +85,34 @@ app.controller('loginCtrl', function($scope, $location){
     var pass = $scope.password ;
     console.log(uname, email, country, phone, pass);
     console.log($location.absUrl());
+
+    $rootScope.signedIn = true ;
+    // var url = $location.url('/check');
+    // var data = $.param({
+    //   shop_owner : JSON.stringify({
+    //       name: uname,
+    //       email : email,
+    //       country : country,
+    //       phone : phone,
+    //       pass = pass 
+    //   })
+    // });
+
+    // $http.post("/api/new_user/", data).success(function(data, status) {
+    //   console.log('Data posted successfully');
+    // })
+
+
+    // another approach
+    // console.log('clicked submit');
+    // $http({
+    //     url: 'http://localhost:8080/blah',
+    //     method: 'POST',
+    //     data: $scope.data
+    // }).then(function (httpResponse) {
+    //     console.log('response:', httpResponse);
+    // })
+
     var url = $location.url('/check');
     console.log($location.absUrl());
   };
