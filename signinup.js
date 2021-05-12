@@ -71,7 +71,7 @@ app.controller('loginCtrl', function($scope, $location){
     var pass = $scope.password ;
     console.log(uname, email, country, phone, pass);
     console.log($location.absUrl());
-    var url = $location.url('/sign');
+    var url = $location.url('/check');
     console.log($location.absUrl());
   };
 
