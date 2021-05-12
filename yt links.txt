@@ -7,3 +7,6 @@ https://www.youtube.com/watch?v=aL95O4ruun0
 login page using angularjs (video)
 
 https://infoheap.com/angularjs-ng-switch-tabs/
+
+let's make a web server
+https://www.youtube.com/watch?v=vcWsOxmHlpg&t=454s&ab_channel=CodeLitCodeLit
