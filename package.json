@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Shawon046/MSSQL-Practices#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mssql": "^7.0.0"
   }
 }
