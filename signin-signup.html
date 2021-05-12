@@ -6,26 +6,32 @@
     <link rel="stylesheet" href="signinup.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="signinup.js"></script>
   </head>
-  <body ng-app = "myApp" ng-controller='MyCtrl'>
+  <body ng-app = "loginApp" ng-controller='tabCtrl'>
       <div class="form">
           <div class="tab-header">
               <div ng-class="{'active': tabName=='tab1'}" ng-click="tabName='tab1'">SIGN IN</div>
               <div ng-class="{'active': tabName=='tab2'}" ng-click="tabName='tab2'">SIGN UP</div>
           </div>
-          <div class="tab-content" ng-switch="tabName">
-            <div ng-switch-when="tab1">
-                <div class="tab-body">
-                    <div class="form-element">
-                        <input type="email" placeholder="Email">
+          <div class="tab-content" ng-switch="tabName" >
+            <div ng-switch-when="tab1" >
+                <div class="tab-body" ng-controller='loginCtrl'>
+                    <div class="form-element" >
+                        <input type="email" ng-model = "username" placeholder="Email">
                     </div>
                     <div class="form-element">
-                      <input type="password" placeholder="Password">
+                      <input type="password" ng-model = "password" placeholder="Password">
                     </div>
                     
                     <div class="form-element">
                       <!-- add function to controller here -->
-                      <button>Sign In</button>
+                      <!-- this segment is added by Shawon -->
+                      <button ng-click ="submit()"> Sign In</button>
+
                     </div>
                     <div class="form-element">
                         <div class="grid-container">
@@ -42,21 +48,21 @@
             </div>
 
             <div ng-switch-when="tab2">
-              <div class="tab-body">
+              <div class="tab-body" ng-controller='loginCtrl'>
                   <div class="form-element">
-                    <input type="text" placeholder="Name">
+                    <input type="text" ng-model = "name" placeholder="Name">
                   </div>
                   <div class="form-element">
-                    <input type="email" placeholder="Email">
+                    <input type="email" ng-model = "email" placeholder="Email">
                   </div>
                   <div class="form-element">
-                    <input type="text" placeholder="Country">
+                    <input type="text" ng-model = "country" placeholder="Country">
                   </div>
                   <div class="form-element">
-                    <input type="tel" placeholder="Phone">
+                    <input type="tel" ng-model = "phone" placeholder="Phone">
                   </div>
                   <div class="form-element">
-                   <input type="password" placeholder="Password">
+                   <input type="password" ng-model = "password" placeholder="Password">
                   </div>
                   <div class="form-element">
                    <input type="checkbox" id="argeementbox">
@@ -64,11 +70,13 @@
                   </div>
                   <div class="form-element">
                     <!-- add function to controller here -->
-                    <button>Sign Up</button>
-                   </div>
+                    <!-- this segment is added by Shawon -->
+                    <button ng-click ="register()">Sign Up</button>
+                  </div>
                   <div class="form-element" id="alreadyacc">
                    Already have an account? 
                    <!-- <a href="/sign_in" ng-click="tabName='tab1'">Sign In</a> -->
+                   <!-- this segment is added by Shawon -->
                    <a href="signin-signup.html">Sign In</a>
                    <!-- works same -->
                    <!-- <a href="/signin-signup.html">Sign In</a> -->
@@ -80,9 +88,6 @@
           </div>
       </div>
 
-      <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script> -->
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
-      <script src="signinup.js"></script>
+      
   </body>
 </html>
