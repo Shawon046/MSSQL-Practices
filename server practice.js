@@ -3,10 +3,10 @@ const path = require('path');
 
 
 const app = express();
-app.use('/static', express.static('signinup'))
+app.use('/static', express.static('angulartest'))
 
 app.get('/',function(req, res) {
-    res.sendFile(path.join(__dirname,'signinup/index.html'))
+    res.sendFile(path.join(__dirname,'angulartest/ang.html'))
 });
 
-app.listen(3000);
+app.listen(8080);

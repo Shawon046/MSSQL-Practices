@@ -12,19 +12,19 @@ app.config(function($routeProvider, $locationProvider) {
   // add configuration
 	$routeProvider
 		.when('/', {
-			templateUrl: 'signin-signup.html',
+			templateUrl: '/static/signin-signup.html',
 			controller: 'loginCtrl'
 		})
 		.when('/sign', {
-			templateUrl: 'signin-signup.html'
+			templateUrl: '/static/signin-signup.html'
 			// controller: 'SecondController'
 		})
     .when('/dash', {
-			templateUrl: 'dashboard.html'
+			templateUrl: '/static/dashboard.html'
 			// controller: 'SecondController'
 		})
     .when('/check', {
-			templateUrl: './Login Page/welcome.html',
+			templateUrl: '/static/welcome.html',
 			// controller: 'SecondController'
 		})
 		.otherwise({

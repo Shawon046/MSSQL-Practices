@@ -1,0 +1,23 @@
+{
+  "name": "mssql-practices",
+  "version": "1.0.0",
+  "description": "Simple log in and sign up using angular js and MSSQL 17",
+  "main": "log in practice.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shawon046/MSSQL-Practices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shawon046/MSSQL-Practices/issues"
+  },
+  "homepage": "https://github.com/Shawon046/MSSQL-Practices#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

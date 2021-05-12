@@ -5,7 +5,6 @@
 .idea/ # folder
 *.mp4 # RE files
 *.pdf
-s_o .html
-s_o .js
-digital clock.html
-ang.js
+
+# Ignore the node_modules directory
+node_modules/
