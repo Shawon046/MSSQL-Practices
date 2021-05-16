@@ -16,12 +16,13 @@ header {
 .uname {
   color: white;
   font-weight: 500;
-  font-size: 27px;
+  font-size: 20px;
   background-color: rgb(148, 148, 202);
   padding-left: 20px;
   padding-right: 20px;
   height: 50px;
   align-items: center;
+  line-height: 50px;
 }
 
 .logout {
@@ -91,7 +92,6 @@ header {
   width: 200px;
   line-height: 40px;
   font-weight: bold;
-  border: red solid 2px;
   margin-top: 50px;
   margin-left: 600px;
 }
@@ -107,6 +107,15 @@ header {
   background: rgb(148, 148, 202);
   color: white;
   font-weight: bolder;
+}
+
+#tasklist {
+  background: rgb(148, 148, 202);
+  color: white;
+}
+
+#notes {
+  background: #f3f3f3;
 }
 
 .content-table {
@@ -135,6 +144,7 @@ header {
 
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
+  height: 50px;
 }
 
 .content-table tbody tr:nth-of-type(even) {
