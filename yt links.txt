@@ -15,5 +15,3 @@ https://www.youtube.com/watch?v=vcWsOxmHlpg&t=454s&ab_channel=CodeLitCodeLit
 How to pass data from AngularJS frontend to Nodejs backend?
 
 https://stackoverflow.com/questions/35699095/how-to-pass-data-from-angularjs-frontend-to-nodejs-backend
-
-https://stackoverflow.com/questions/35699095/how-to-pass-data-from-angularjs-frontend-to-nodejs-backend

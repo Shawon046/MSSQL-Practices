@@ -12,11 +12,11 @@ app.config(function($routeProvider, $locationProvider) {
   // add configuration
 	$routeProvider
 		.when('/', {
-			templateUrl: '/static/signin-signup.html',
+			templateUrl: 'signin-signup.html',
 			controller: 'loginCtrl'
 		})
 		.when('/sign', {
-			templateUrl: '/static/signin-signup.html'
+			templateUrl: 'signin-signup.html'
 			// controller: 'SecondController'
 		})
     .when('/dash', {
@@ -27,7 +27,7 @@ app.config(function($routeProvider, $locationProvider) {
           }
         }
       },
-			templateUrl: '/static/dashboard.html'
+			templateUrl: 'dashboard.html'
 			
 		})
     .when('/check', {
@@ -38,7 +38,7 @@ app.config(function($routeProvider, $locationProvider) {
           }
         }
       },
-			templateUrl: '/static/welcome.html',
+			templateUrl: 'welcome.html',
 			// controller: 'SecondController'
 		})
 		.otherwise({
@@ -87,23 +87,25 @@ app.controller('loginCtrl', function($scope, $location, $rootScope,$http){
     console.log($location.absUrl());
 
     $rootScope.signedIn = true ;
-    // var url = $location.url('/check');
-    // var data = $.param({
-    //   shop_owner : JSON.stringify({
-    //       name: uname,
-    //       email : email,
-    //       country : country,
-    //       phone : phone,
-    //       pass = pass 
-    //   })
-    // });
 
-    // $http.post("/api/new_user/", data).success(function(data, status) {
-    //   console.log('Data posted successfully');
-    // })
+    $location.path('/check');
+    // 19 votes
+    var data = $scope.param({
+      shop_owner : JSON.stringify({
+          name: uname,
+          email : email,
+          country : country,
+          phone : phone,
+          pass : pass 
+      })
+    });
+
+    $http.post("/api/new_user/", data).success(function(data, status) {
+      console.log('Data posted successfully');
+    })
 
 
-    // another approach
+    // another approach - 4 votes
     // console.log('clicked submit');
     // $http({
     //     url: 'http://localhost:8080/blah',
@@ -113,7 +115,7 @@ app.controller('loginCtrl', function($scope, $location, $rootScope,$http){
     //     console.log('response:', httpResponse);
     // })
 
-    var url = $location.url('/check');
+    // var url = $location.url('/check');
     console.log($location.absUrl());
   };
 
