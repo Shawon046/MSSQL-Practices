@@ -9,20 +9,6 @@ const port = process.env.PORT || 3000;
 app.get('/',function(req, res) {
     res.sendFile(path.join(__dirname,'signinup/signin-signup.html'))
 
-    console.log("requiring mssql....")
-
-    var sql = require("mssql");
-
-    // config for your database
-    var config = {
-        server: 'localhost\\MSSQLSERVER', 
-        database: 'workStation',
-        user: 'sa',
-        password: 'loosely_coupled',
-        port : 1433,
-        trustServerCertificate: true
-    };
-
     function getUsers() {
         var conn = new sql.ConnectionPool(config);
         var req = new sql.Request(conn);
