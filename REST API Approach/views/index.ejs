@@ -1,0 +1,20 @@
+<!-- created by Shawon -->
+
+<!-- html
+  head
+    title = title
+  body
+    h1 = message -->
+<html>
+  <head>
+    <title><%= title %></title>
+    <body>
+      <h1><%= message %></h1>
+      <h2>My name is <%= name %></h2>
+      <% listnames.forEach(function(name) { %>
+        <p><%= name %></p>
+        <% }); %>
+    </body>
+  </head>
+</html>
+
