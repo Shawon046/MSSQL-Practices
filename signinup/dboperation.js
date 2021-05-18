@@ -1,7 +1,7 @@
 var config = require("./dbconfig");
 const sql = require ('mssql');
 
-async function getUser(){
+async function getUsers(){
     try{
         let conn = await sql.connect(config);
         let users = await conn.request().query("SELECT * FROM USERS");
@@ -10,4 +10,8 @@ async function getUser(){
     catch(error){
         console.log(error);
     }
+}
+
+module.exports = {
+    getUsers : getUsers
 }

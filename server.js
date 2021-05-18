@@ -21,39 +21,21 @@ router.use((req,res,next)=>{
 })
 
 router.route('/users').get((req,res) =>{
-    dboperation.getUsers(res => {
-        console.log(res);
-    })
-    /*
+
     dboperation.getUsers.then(res =>{
         res.json(res[0]);
     })
-    */
 })
 
 
 app.get('/',function(req, res) {
 
-    
-
-    console.log('hiiii');
-
-    dboperation.getUsers(res => {
-        console.log('11111');
-        console.log(res);
-    })
-
-    dboperation.getUsers(res => {
-        console.log('2222');
-        console.log(res);
-    })
-/*
     res.sendFile(path.join(__dirname,'signinup/signin-signup.html'))
     dboperation.getUsers.then(response =>{
         console.log(response);
         res.json(response[0]);
     })
-*/
+
 });
 
 const port = process.env.PORT || 8080;
