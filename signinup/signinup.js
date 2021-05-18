@@ -27,7 +27,7 @@ app.config(function($routeProvider, $locationProvider) {
           }
         }
       },
-			templateUrl: 'dashboard.html'
+			templateUrl: '/static/dashboard.html'
 			
 		})
     .when('/check', {
@@ -38,7 +38,7 @@ app.config(function($routeProvider, $locationProvider) {
           }
         }
       },
-			templateUrl: 'welcome.html',
+			templateUrl: '/static/welcome.html',
 			// controller: 'SecondController'
 		})
 		.otherwise({

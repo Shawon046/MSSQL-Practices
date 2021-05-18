@@ -4,15 +4,15 @@ var bodyParser = require('body-parser');
 
 
 const app = express();
-app.use(bodyParser.json({limit: '50mb'}));
+// app.use(bodyParser.json({limit: '50mb'}));
 
 
-// app.use('/static', express.static( 'signinup'));
+app.use('/static', express.static( 'signinup'));
 
 app.get('/',function(req, res) {
-    // res.sendFile(path.join(__dirname,'signinup/index.html'));
+    res.sendFile(path.join(__dirname,'signinup/signin-signup.html'));
     console.log(__dirname);
-    res.sendFile(path.join(__dirname,'signinup/index.html'))
+    // res.sendFile(path.join(__dirname,'signinup/check.html'))
     // res.sendFile('/static/index.html');
 });
 

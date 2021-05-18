@@ -1,8 +1,20 @@
 <!-- this segment is added by Shawon -->
-<link rel="stylesheet" href="signinup.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Log In and Sign Up</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    
+    <script src="/static/signinup.js"></script>
+    <link rel="stylesheet" href="/static/signinup.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
 
+
+<body ng-app = "loginApp" >
 <div class="form" ng-controller='tabCtrl'>
 <div class="tab-header">
     <div ng-class="{'active': tabName=='tab1'}" ng-click="tabName='tab1'">SIGN IN</div>
@@ -83,5 +95,6 @@
       </div>
     </div>
 </div>
-
+</body>
+</html>
    
