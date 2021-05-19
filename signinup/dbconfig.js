@@ -1,5 +1,3 @@
-var sql = require("mssql");
-
 const config = {
         server: 'localhost\\MSSQLSERVER', 
         database: 'workStation',

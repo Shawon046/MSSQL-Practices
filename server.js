@@ -20,25 +20,51 @@ router.use((req,res,next)=>{
     next();
 })
 
-router.route('/users').get((req,res) =>{
-
-    dboperation.getUsers.then(res =>{
-        res.json(res[0]);
-    })
-})
-
-
 app.get('/',function(req, res) {
-
     res.sendFile(path.join(__dirname,'signinup/signin-signup.html'))
-    dboperation.getUsers.then(response =>{
-        console.log(response);
-        res.json(response[0]);
-    })
-
 });
 
-const port = process.env.PORT || 8080;
+app.get('/users',function(req, res) {
+    try{
+        dboperation.getUsers.then(res =>{
+            res.json(res[0]);
+        })
+    }
+    catch(error){
+        console.log(error);
+    }
+});
+
+router.route('/users').get((req,res) =>{
+    try{
+        dboperation.getUsers.then(res =>{
+            res.json(res[0]);
+        })
+    }
+    catch(error){
+        console.log(error);
+    }
+})
+
+router.route('/users/:user_email').get((request,response)=>{
+
+    dboperations.getOrder(request.params.user_email).then(result => {
+       response.json(result[0]);
+    })
+
+})
+
+router.route('/newuser').post((request,response)=>{
+
+    let nuser = {...request.body}
+
+    dboperations.addOrder(nuser).then(result => {
+       response.status(201).json(result);
+    })
+
+})
+
+const port = process.env.PORT || 8090;
 app.listen(port, () => {
     console.log('listening on port: ' + port);
 });
