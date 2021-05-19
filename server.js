@@ -24,6 +24,10 @@ app.get('/',function(req, res) {
     res.sendFile(path.join(__dirname,'signinup/signin-signup.html'))
 });
 
+app.get('/dash',function(req, res) {
+    res.sendFile(path.join(__dirname,'signinup/dashboard.html'))
+});
+
 app.get('/users',function(req, res) {
     try{
         dboperation.getUsers.then(res =>{
