@@ -38,7 +38,7 @@ router.post('/login', async (req, res,next) => {
 
     console.log(email,password);
     if(1){
-        res.sendFile(path.join(__dirname,'signinup/dashboard.html'));
+        res.sendFile(path.join(__dirname,'signinup/dashboard/.html'));
     }
 });
 
