@@ -8,6 +8,7 @@ var cors = require('cors');
 var app = express();
 var router = express.Router();
 const path = require('path');
+const User = require('./signinup/user');
 
 //app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(bodyParser.json());
@@ -36,10 +37,32 @@ router.post('/login', async (req, res,next) => {
     const password = req.body.login_password;
 
     console.log(email,password);
+    if(1){
+        res.sendFile(path.join(__dirname,'signinup/dashboard.html'));
+    }
+});
 
-    res.sendFile(path.join(__dirname,'signinup/dashboard.html'))
+router.post('/signup', async (req, res,next) => {
 
-  });
+    console.log(req.body);
+
+    const name = req.body.n_name;
+    const email = req.body.n_email;
+    const country = req.body.n_country;
+    const phone = req.body.n_phone;
+    const password = req.body.n_pass;
+
+    console.log(email,name,country,phone,password);
+
+    let newuser = new User(name,email,country,phone,password);
+
+    dboperation.addUser(newuser).then(result => {
+       res.status(201).json(result);
+    })
+
+    res.sendFile(path.join(__dirname,'signinup/signin-signup.html'))
+
+});
 
 app.get('/dash',function(req, res) {
     res.sendFile(path.join(__dirname,'signinup/dashboard.html'))
@@ -47,7 +70,7 @@ app.get('/dash',function(req, res) {
 
 app.get('/users',function(req, res) {
     try{
-        dboperation.getUsers.then(res =>{
+        dboperation.getUsers().then(res =>{
             res.json(res[0]);
         })
     }
@@ -58,8 +81,8 @@ app.get('/users',function(req, res) {
 
 router.route('/users').get((req,res) =>{
     try{
-        dboperation.getUsers.then(res =>{
-            res.json(res[0]);
+        dboperation.getUsers().then(result =>{
+            res.json(result[0]);
         })
     }
     catch(error){

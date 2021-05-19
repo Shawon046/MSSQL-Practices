@@ -52,29 +52,30 @@
 
             <div ng-switch-when="tab2">
               <div class="tab-body">
+                <form method ="POST" action='/signup'>
                   <div class="form-element">
-                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Name" name="n_name">
                   </div>
                   <div class="form-element">
-                    <input type="email" placeholder="Email">
+                    <input type="email" placeholder="Email" name="n_email">
                   </div>
                   <div class="form-element">
-                    <input type="text" placeholder="Country">
+                    <input type="text" placeholder="Country" name="n_country">
                   </div>
                   <div class="form-element">
-                    <input type="tel" placeholder="Phone">
+                    <input type="tel" placeholder="Phone" name="n_phone">
                   </div>
                   <div class="form-element">
-                   <input type="password" placeholder="Password">
+                   <input type="password" placeholder="Password" name="n_pass">
                   </div>
                   <div class="form-element">
                    <input type="checkbox" id="argeementbox">
                    <label for="argeementbox">Agree with <a href="/terms_conditions">terms and conditions</a></label>
                   </div>
                   <div class="form-element">
-                    <!-- add function to controller here -->
                     <button>Sign Up</button>
                    </div>
+                  </form>
                   <div class="form-element" id="alreadyacc">
                    Already have an account? 
                    <!-- <a href="/sign_in" ng-click="tabName='tab1'">Sign In</a> -->

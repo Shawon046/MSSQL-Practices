@@ -5,7 +5,6 @@ async function getUsers(){
     try{
         let conn = await sql.connect(config);
         let users = await conn.request().query("SELECT * FROM USERS");
-        console.log(json(users.recordset[0]))
         return users.recordset;
     }
     catch(error){
@@ -20,7 +19,6 @@ async function getUser(user_email) {
             .input('input_parameter', sql.NVarChar, user_email)
             .query("SELECT * from uaers where user_email = @input_parameter");
         return user.recordsets;
-
     }
     catch (error) {
         console.log(error);
@@ -33,11 +31,11 @@ async function addUser(user) {
     try {
         let pool = await sql.connect(config);
         let insertUser = await pool.request()
-            .input('Id', sql.NVarChar, user.user_name)
-            .input('Title', sql.NVarChar, user.user_email)
-            .input('Quantity', sql.NChar, user.user_country)
-            .input('Message', sql.NChar, user.user_phone)
-            .input('City', sql.NChar, user.user_password)
+            .input('user_name', sql.NVarChar, user.user_name)
+            .input('user_email', sql.NVarChar, user.user_email)
+            .input('user_country', sql.NChar, user.user_country)
+            .input('user_phone', sql.NChar, user.user_phone)
+            .input('user_password', sql.NChar, user.user_password)
             .execute('InsertUser');
         return insertUser.recordsets;
     }
