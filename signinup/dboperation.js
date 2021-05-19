@@ -5,6 +5,7 @@ async function getUsers(){
     try{
         let conn = await sql.connect(config);
         let users = await conn.request().query("SELECT * FROM USERS");
+        console.log(json(users.recordset[0]))
         return users.recordset;
     }
     catch(error){
@@ -34,9 +35,9 @@ async function addUser(user) {
         let insertUser = await pool.request()
             .input('Id', sql.NVarChar, user.user_name)
             .input('Title', sql.NVarChar, user.user_email)
-            .input('Quantity', sql.Char, user.user_country)
-            .input('Message', sql.Char, user.user_phone)
-            .input('City', sql.Char, user.user_password)
+            .input('Quantity', sql.NChar, user.user_country)
+            .input('Message', sql.NChar, user.user_phone)
+            .input('City', sql.NChar, user.user_password)
             .execute('InsertUser');
         return insertUser.recordsets;
     }

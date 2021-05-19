@@ -22,17 +22,20 @@
               
               </span>
                 <div class="tab-body">
+
+                  <form method='POST', action='/login'>
                     <div class="form-element">
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" name="login_email">
                     </div>
                     <div class="form-element">
-                      <input type="password" placeholder="Password">
+                      <input type="password" placeholder="Password" name="login_password">
                     </div>
                     
                     <div class="form-element">
-                      <!-- add function to controller here -->
-                      <button>Sign In</button>
+                      <button id="signinbtn">Sign In</button>
                     </div>
+                  </form>
+
                     <div class="form-element">
                         <div class="grid-container">
                           <div class="grid-item">

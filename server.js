@@ -9,10 +9,14 @@ var app = express();
 var router = express.Router();
 const path = require('path');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
+
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
 app.use(cors());
-app.use('/api', router);
+app.use('/', router);
 app.use('/static', express.static('signinup'))
 
 router.use((req,res,next)=>{
@@ -23,6 +27,19 @@ router.use((req,res,next)=>{
 app.get('/',function(req, res) {
     res.sendFile(path.join(__dirname,'signinup/signin-signup.html'))
 });
+
+router.post('/login', async (req, res,next) => {
+
+    console.log(req.body);
+
+    const email = req.body.login_email;
+    const password = req.body.login_password;
+
+    console.log(email,password);
+
+    res.sendFile(path.join(__dirname,'signinup/dashboard.html'))
+
+  });
 
 app.get('/dash',function(req, res) {
     res.sendFile(path.join(__dirname,'signinup/dashboard.html'))
