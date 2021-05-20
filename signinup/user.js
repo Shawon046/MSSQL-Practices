@@ -6,6 +6,8 @@ class User{
         this.user_phone = user_phone;
         this.user_password = user_password; 
     }
+
+    
 }
 
 module.exports = User
