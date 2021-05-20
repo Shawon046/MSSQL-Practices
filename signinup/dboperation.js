@@ -17,7 +17,7 @@ async function getUser(user_email) {
         let pool = await sql.connect(config);
         let user = await pool.request()
             .input('input_parameter', sql.NVarChar, user_email)
-            .query("SELECT * from uaers where user_email = @input_parameter");
+            .query("SELECT * from users where user_email = @input_parameter");
         return user.recordsets;
     }
     catch (error) {
