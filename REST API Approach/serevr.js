@@ -50,34 +50,17 @@ router.use((req,res,next)=>{
 
 // home route
 
-// Passing Server-Side Data to the Frontend
-// For a simple array, you can use this example instead, 
-// which will create a p tag for every name in the listnames variable
 // app.get('/', function (req, res) {
-//     var name = "Louise";
-//     var listnames = ["Louise", "Sadie", "Erik", "Raph", "Gina"];
 //     // Render index page
-//     res.render('index', {
-//         // EJS variable and server-side variable
-//         title: 'article', 
-//         message: 'Hello there!' ,
-//         name: name,
-//         listnames: listnames
+//     fileName = 'login.html' ;
+//     res.sendFile(path.join(__dirname,'views/'+fileName), function (err) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log('Sent:', fileName);
+//         }
 //     });
-// });
-
-
-/* app.get('/', function (req, res) {
-    // Render index page
-    fileName = 'login.html' ;
-    res.sendFile(path.join(__dirname,'views/'+fileName), function (err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('Sent:', fileName);
-        }
-    });
-}); */
+// }); 
 
 
 app.get('/',function(req, res) {
@@ -86,8 +69,8 @@ app.get('/',function(req, res) {
 
 router.post('/login', async (req, res) => {
     try{
-        console.log(req.body);
-        console.log('hi now');
+        // console.log(req.body);
+        // console.log('hi now');
         const email = req.body.login_email;
         const password = req.body.login_password;
 
@@ -96,20 +79,26 @@ router.post('/login', async (req, res) => {
         dboperation.getUser(email).then(result => {
             u_details = result[0];
             u_pass = result[0][0].user_password;
-            //console.log(u_details,u_pass)
-            //console.log(Object.keys(u_details).length)
-         })
+            console.log(u_pass);
+            // console.log(Object.keys(u_details).length)
 
-        console.log(u_details,u_pass)
-        console.log(Object.keys(u_details).length)
+            //  && password===u_pass
+            if(Object.keys(u_details).length>0 && password.trim() === u_pass.trim()){
+                res.sendFile(path.join(__dirname,'signinup/dashboard.html'));
+            }
+            else{
+                res.sendFile(path.join(__dirname,'signinup/signin-signup.html'));
+            }
+        })
+
+        //  u_details = dboperation.getUser(email);
+
+
+        // console.log(u_pass)
+        // console.log(Object.keys(u_details).length)
         
 
-        if(Object.keys(u_details).length>0 && password==u_pass){
-            res.sendFile(path.join(__dirname,'signinup/dashboard.html'));
-        }
-        else{
-            res.sendFile(path.join(__dirname,'signinup/signin-signup.html'));
-        }
+        
     } catch (error){
         console.log(error);
     }
@@ -148,6 +137,13 @@ app.get('/dash',function(req, res) {
 router.route('/users').get((req,res) =>{
     try{
         dboperation.getUsers().then(result =>{
+            // console.log(result.length);
+            // let i ;
+            // for (i = 0; i < result.length; i++) {
+            //     console.log(i);
+            //     res.json(result[i]);
+            //     console.log(result[i]);
+            // }
             res.json(result[0]);
             console.log(result[0]);
         })
