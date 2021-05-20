@@ -41,20 +41,14 @@ router.post('/login', async (req, res,next) => {
         dboperation.getUser(email).then(result => {
             u_details = result[0];
             u_pass = result[0][0].user_password;
-            //console.log(u_details,u_pass)
-            //console.log(Object.keys(u_details).length)
+
+            if(Object.keys(u_details).length>0 && password.trim() === u_pass.trim()){
+                res.sendFile(path.join(__dirname,'signinup/dashboard.html'));
+            }
+            else{
+                res.sendFile(path.join(__dirname,'signinup/signin-signup.html'));
+            }
          })
-
-        console.log(u_details,u_pass)
-        console.log(Object.keys(u_details).length)
-        
-
-        if(Object.keys(u_details).length>0 && password==u_pass){
-            res.sendFile(path.join(__dirname,'signinup/dashboard.html'));
-        }
-        else{
-            res.sendFile(path.join(__dirname,'signinup/signin-signup.html'));
-        }
     } catch (error){
         console.log(error);
     }
