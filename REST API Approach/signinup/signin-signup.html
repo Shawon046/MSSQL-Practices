@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/signinup.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+  </head>
+  <body ng-app = "myApp" ng-controller='MyCtrl'>
+      <div class="form">
+          <div class="tab-header">
+              <div ng-class="{'active': tabName=='tab1'}" ng-click="tabName='tab1'">SIGN IN</div>
+              <div ng-class="{'active': tabName=='tab2'}" ng-click="tabName='tab2'">SIGN UP</div>
+          </div>
+          <div class="tab-content" ng-switch="tabName">
+            <div ng-switch-when="tab1">
+              <span class = "wel">
+                <h1>WELCOME</h1>
+                <p>. . . . . . . . . . . . . . . . . . . . </p>
+                <p id="welnote">this is a simple sign in sign up page which will lead to mssql database</p>
+              
+              </span>
+                <div class="tab-body">
+
+                  <form method='POST', action='/login'>
+                    <div class="form-element">
+                        <input type="email" placeholder="Email" name="login_email">
+                    </div>
+                    <div class="form-element">
+                      <input type="password" placeholder="Password" name="login_password">
+                    </div>
+                    
+                    <div class="form-element">
+                      <button id="signinbtn">Sign In</button>
+                    </div>
+                  </form>
+
+                    <div class="form-element">
+                        <div class="grid-container">
+                          <div class="grid-item">
+                              <input type="checkbox" id="rememberbox">
+                              <label for="rememberbox">Remember me</label>
+                          </div>
+                          <div class="grid-item">
+                              <a href="/recover_password">Forget Password?</a>
+                          </div>
+                      </div>  
+                    </div>
+                </div>
+            </div>
+
+            <div ng-switch-when="tab2">
+              <div class="tab-body">
+                <form method ="POST" action='/signup'>
+                  <div class="form-element">
+                    <input type="text" placeholder="Name" name="n_name">
+                  </div>
+                  <div class="form-element">
+                    <input type="email" placeholder="Email" name="n_email">
+                  </div>
+                  <div class="form-element">
+                    <input type="text" placeholder="Country" name="n_country">
+                  </div>
+                  <div class="form-element">
+                    <input type="tel" placeholder="Phone" name="n_phone">
+                  </div>
+                  <div class="form-element">
+                   <input type="password" placeholder="Password" name="n_pass">
+                  </div>
+                  <div class="form-element">
+                   <input type="checkbox" id="argeementbox">
+                   <label for="argeementbox">Agree with <a href="/terms_conditions">terms and conditions</a></label>
+                  </div>
+                  <div class="form-element">
+                    <button>Sign Up</button>
+                   </div>
+                  </form>
+                  <div class="form-element" id="alreadyacc">
+                   Already have an account? 
+                   <!-- <a href="/sign_in" ng-click="tabName='tab1'">Sign In</a> -->
+                   <a href="signin-signup.html">Sign In</a>
+                   <!-- works same -->
+                   <!-- <a href="/signin-signup.html">Sign In</a> -->
+                  </div>
+              </div>
+            </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+      <script src="/static/signinup.js"></script>
+  </body>
+</html>

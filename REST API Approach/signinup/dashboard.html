@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>User's</title>
+</head>
+<body>
+    <header>
+        <div class="uname">
+            <i class="fa fa-user-circle"></i>
+            {{user.name}}
+        </div>
+        <a class="logout" href="#">Logout</a>
+    </header>
+    <div class="searchcontainer">
+        <div class="search_wrap">
+			<div class="search_box">
+				<input type="text" class="input" placeholder="Search for tasks...">
+				<div class="btn btn_common">
+					<i class="fa fa-search"></i>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="tab-header">
+        <div ng-class="{'active': tabletab=='tab1'}" ng-click="tabletab='tab1'" id="tasklist">Task List</div>
+        <div ng-class="{'active': tabletab=='tab2'}" ng-click="tabletab='tab2'" id="notes">Notes</div>
+    </div>
+    <div class="tab-content">
+        <div ng-show="tabletab='tab1'">
+            <table class="content-table">
+                <thead>
+                  <tr>
+                    <th>TASK NO</th>
+                    <th>PROJECT</th>
+                    <th>TASK NAME</th>
+                    <th>TASK DESCRIPTION</th>
+                    <th>TASK FROM</th>
+                    <th>PRIORITY</th>
+                    <th>STATUS</th>
+                    <th>START DATE</th>
+                    <th>END DATE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div ng-switch-when="tab2">
+                
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="/static/dash.js"></script>
+</body>
+</html>

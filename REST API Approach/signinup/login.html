@@ -31,10 +31,12 @@
     </span>
       <div class="tab-body" ng-controller='loginCtrl'>
           <div class="form-element" >
-              <input type="email" ng-model = "username" placeholder="Email">
+			<!-- "name" is Used to give a name to the control which is sent to 
+			the server to be recognized and get the value -->
+              <input type="email" name = "username" placeholder="Email">
           </div>
           <div class="form-element">
-            <input type="password" ng-model = "password" placeholder="Password">
+            <input type="password" name = "password" placeholder="Password">
           </div>
           <div class="form-element">
             <!-- add function to controller here -->
@@ -59,19 +61,19 @@
   <div ng-switch-when="tab2">
     <div class="tab-body" ng-controller='loginCtrl'>
         <div class="form-element">
-          <input type="text" ng-model = "name" placeholder="Name">
+          <input type="text" name = "name" placeholder="Name">
         </div>
         <div class="form-element">
-          <input type="email" ng-model = "email" placeholder="Email">
+          <input type="email" name = "email" placeholder="Email">
         </div>
         <div class="form-element">
-          <input type="text" ng-model = "country" placeholder="Country">
+          <input type="text" name = "country" placeholder="Country">
         </div>
         <div class="form-element">
-          <input type="tel" ng-model = "phone" placeholder="Phone">
+          <input type="tel" name = "phone" placeholder="Phone">
         </div>
         <div class="form-element">
-          <input type="password" ng-model = "password" placeholder="Password">
+          <input type="password" name = "password" placeholder="Password">
         </div>
         <div class="form-element">
           <input type="checkbox" id="argeementbox">

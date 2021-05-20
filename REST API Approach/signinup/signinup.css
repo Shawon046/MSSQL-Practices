@@ -4,11 +4,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  background: url(bg.png);
+  background: url(/static/bg.png);
   background-size: cover;
 }
 
 .form {
+  flex: auto;
   width: 330px;
   position: absolute;
   top: 50%;
